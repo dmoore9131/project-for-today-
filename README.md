@@ -1,101 +1,57 @@
-# Speechify iOS Debugging Challenge
+iOS Debugging Challenge — SwiftDebugChallenge
 
-Welcome to the Debugging Challenge round, where you'll tackle three distinct debugging scenarios in an iOS application.
-Each task is designed to test your ability to identify, analyze, and fix different types of implementation issues ranging from UI bugs to concurrency problems. 
-Your success will be measured by your systematic approach to debugging, understanding of iOS development concepts, and ability to implement effective solutions while working within the provided constraints.
+This repository contains an iOS SwiftUI application designed as a multi-step debugging challenge. The goal is to identify and fix various issues across the app while learning key iOS development concepts and best practices.
 
-# Development Guidelines
+Task 0 — Familiarize with the Codebase
 
-## Do's
+Before starting the challenge, carefully review the entire codebase. Understanding the project structure, key components, and workflows is crucial. Take time to explore the screens, services, view models, and entities to get a solid overview.
 
--   Write clean, maintainable, and well-documented code and follow the best practices and coding standards.
--   You are free to use any official documentation or language references (SwiftUI, Swift, etc).
--   You can use the debugging tools and native IDE features (only standard Auto-Completion)
+Task 1 — Debug and Optimize the Task Management App
 
-## Don'ts
+You’ll tackle debugging and optimization for the main app features, which include:
 
--   Do NOT use any external libraries for the implementation.
--   DO NOT use any Coding Assistants like GitHub Copilot, ChatGPT, etc or any other AI based tools.
--   DO NOT visit direct blogs or articles related to implementation of the tasks.
--   DO NOT use Stackoverflow or any other forum websites.
+Projects Tab: A searchable project list, detailed project views, and associated work item details.
 
-# Task #0
-Carefully review the README file and take the time to familiarize yourself with the codebase. Understanding the structure and key components will be essential before you proceed with the challenge.
+Analytics Tab: A dashboard showing key performance metrics, detailed analyses, and recent project summaries.
 
-# Task #1
+Your mission here is to identify and fix all UI bugs, memory leaks, and any potential crash scenarios. Ensure that the existing features remain fully functional and improve app stability and performance where possible.
 
-## Overview
-Your challenge is to debug and optimize a task management application built with SwiftUI. The application consists of two main tabs:
+Task 2 — Fix Concurrency Issues in Reminder Service
 
-### Projects Tab
-- Project List View with search functionality
-- Project Details view showing associated work items
-- Work Item Details with priority and status information
+This task focuses on the DefaultReminderService, which fetches reminders using three different concurrency paradigms:
 
-### Analytics Tab
-- Key Metrics dashboard with performance indicators
-- Detailed metric analysis with historical data
-- Recent Projects quick access section
+Callback-based (fetchReminders)
 
-## Current State
-The application is feature-complete with all functionality implemented as described above. However, it contains several implementation issues that need to be addressed:
-- Various UI bugs
-- Suspected memory leaks
-- Potential crash scenarios (if encountered)
+Combine (remindersPublisher)
 
-## Task
-Your task is to identify and fix all implementation issues while ensuring all existing features continue to work as specified.
+Swift Concurrency (fetchRemindersAsync)
 
-## Important Notes
-- Some files are marked as "DO NOT MODIFY" - these must remain unchanged
-- In certain files, only specific sections are marked as protected with clear comments
-- Modifying any protected code (either entire files or marked sections) will result in automatic task failure
+Your job is to fix the implementations so they correctly fetch three pages of reminders in parallel, returning exactly 12 unique reminders in total. All corresponding tests must pass. Remember to stick to each method’s designated concurrency style without modifying protected code.
 
-## Success Criteria
-The final submission should be stable and free of bugs, memory leaks, and crashes while maintaining all existing functionality.
+Task 3 — Resolve Login Screen Bug
 
-# Task #2
+To complete the challenge, switch the app’s initial screen to the login screen. Then, find and fix a single bug that prevents successful login. Once fixed, tapping the login button should navigate you to the next part of the challenge.
 
-## Task
-Fix the concurrency implementation in `DefaultReminderService` to correctly handle parallel reminder fetching using three different paradigms:
+Guidelines and Restrictions
 
-1. Callback-Based (`fetchReminders`)
-2. Combine (`remindersPublisher`)
-3. Swift Concurrency (`fetchRemindersAsync`)
+Maintain clean, readable, and well-documented Swift code.
 
-Each implementation must:
-- Fetch three pages of reminders in parallel
-- Return a total of 12 reminders
-- Pass all associated tests in `DefaultReminderServiceTests`
+Use only official Swift and SwiftUI documentation and standard IDE tools.
 
-## Success Criteria
-- All tests in `DefaultReminderServiceTests` pass successfully
-- Each method fetches exactly three pages concurrently
-- All methods return 12 unique reminders
-- Each implementation uses its designated concurrency paradigm
-- Each method has a unique implementation
+Do not use any external libraries or AI coding assistants.
 
-## Important Notes
-- Some files are marked as "DO NOT MODIFY" - these must remain unchanged
-- In certain files, only specific sections are marked as protected with clear comments
-- Modifying any protected code (either entire files or marked sections) will result in automatic task failure
-- Work with the existing code structure; do not rewrite from scratch
-- Stay within each method's designated paradigm (Callbacks/Combine/Swift Concurrency)
-- Do not call other methods of the class within implementations
+Avoid modifying files or code sections marked as “DO NOT MODIFY.”
 
-# Task #3
+Follow best practices for debugging, concurrency, and UI development.
 
-## Prerequisites
-Please switch the `currentScreen` to `.login` in `DebuggingChallengeApp.swift` file.
+Success Criteria Summary
 
-## Task
-Your goal is to pass the login screen by locating and fixing a single bug.
+All UI bugs, crashes, and memory leaks fixed in Task 1.
 
-## Success Criteria
-Once the issue is resolved, tapping **Login** should transition you to the second part of the challenge.
+Parallel fetching in all three concurrency methods works correctly, passing all tests in Task 2.
 
-## Important Notes
-- Only one bug needs to be fixed to complete this task
-- Some files are marked as "DO NOT MODIFY" - these must remain unchanged
-- In certain files, only specific sections are marked as protected with clear comments
-- Modifying any protected code (either entire files or marked sections) will result in automatic task failure
+Login bug fixed so the app proceeds correctly in Task 3.
+
+Full functionality preserved and code quality improved throughout.
+
+Good luck! This challenge is a great way to sharpen your iOS debugging and Swift concurrency skills while working on a practical, feature-rich app.
